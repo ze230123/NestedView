@@ -7,8 +7,10 @@
 //
 
 import UIKit
-
-public class NestedView: UIScrollView {
+/// 多个视图(包含滚动视图)嵌套
+///
+/// ArrangedSubview 必须实现 intrinsicContentSize
+class EGStackView: UIScrollView {
     private lazy var contentView = UIView()
     private lazy var stackView: UIStackView = {
         let view = UIStackView()
@@ -20,8 +22,9 @@ public class NestedView: UIScrollView {
         return view
     }()
 
-    private var observas: [NSKeyValueObservation] = []
-    private var views: [Nesteable] = []
+    deinit {
+        print("NestedView_deinit")
+    }
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -34,28 +37,16 @@ public class NestedView: UIScrollView {
     }
 }
 
-extension NestedView {
-    func addArrangedSubview<V: UIView>(_ view: V) where V: Nesteable {
+extension EGStackView {
+    func addArrangedSubview(_ view: UIView) {
         stackView.addArrangedSubview(view)
-        views.append(view)
-        addObserve(view)
-    }
-
-    func addObserve<V: UIView>(_ view: V) where V: Nesteable {
-        view.contentHeightDidChanged = { [unowned self] in
-            self.updateContentSize()
-        }
-    }
-
-    func updateContentSize() {
-        let height = views.map { $0.contentHeight }.reduce(0, +)
-        contentSize.height = height
     }
 }
 
-private extension NestedView {
+private extension EGStackView {
     func prepare() {
-        contentView.backgroundColor = .lightGray
+        contentView.frame = bounds
+        contentView.backgroundColor = .red
         contentView.translatesAutoresizingMaskIntoConstraints = false
         addSubview(contentView)
         contentView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
@@ -64,6 +55,7 @@ private extension NestedView {
         contentView.rightAnchor.constraint(equalTo: self.rightAnchor).isActive = true
         contentView.widthAnchor.constraint(equalTo: self.widthAnchor).isActive = true
 
+        stackView.frame = bounds
         stackView.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(stackView)
         stackView.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true

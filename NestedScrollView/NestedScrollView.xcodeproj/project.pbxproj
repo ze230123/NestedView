@@ -7,13 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		763FD6F024499D7F00F27153 /* NestedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 763FD6EF24499D7F00F27153 /* NestedView.swift */; };
+		763FD6F024499D7F00F27153 /* EGStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 763FD6EF24499D7F00F27153 /* EGStackView.swift */; };
 		763FD6F324499F9A00F27153 /* ExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 763FD6F124499F9A00F27153 /* ExampleViewController.swift */; };
 		763FD6F424499F9A00F27153 /* ExampleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 763FD6F224499F9A00F27153 /* ExampleViewController.xib */; };
 		763FD6F724499FFC00F27153 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 763FD6F624499FFC00F27153 /* HeaderView.swift */; };
 		763FD6F92449A14200F27153 /* CommitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 763FD6F82449A14200F27153 /* CommitView.swift */; };
 		763FD6FB2449A15200F27153 /* CommitView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 763FD6FA2449A15200F27153 /* CommitView.xib */; };
 		763FD6FD2449A18200F27153 /* NibLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 763FD6FC2449A18200F27153 /* NibLoadable.swift */; };
+		7647219C244D8AC4001CDF75 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7647219B244D8AC4001CDF75 /* WebView.swift */; };
 		76AA0248242DF51E00972966 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76AA0247242DF51E00972966 /* AppDelegate.swift */; };
 		76AA024A242DF51E00972966 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76AA0249242DF51E00972966 /* SceneDelegate.swift */; };
 		76AA024C242DF51E00972966 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76AA024B242DF51E00972966 /* ViewController.swift */; };
@@ -42,13 +43,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		763FD6EF24499D7F00F27153 /* NestedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NestedView.swift; sourceTree = "<group>"; };
+		763FD6EF24499D7F00F27153 /* EGStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EGStackView.swift; sourceTree = "<group>"; };
 		763FD6F124499F9A00F27153 /* ExampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleViewController.swift; sourceTree = "<group>"; };
 		763FD6F224499F9A00F27153 /* ExampleViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExampleViewController.xib; sourceTree = "<group>"; };
 		763FD6F624499FFC00F27153 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		763FD6F82449A14200F27153 /* CommitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommitView.swift; sourceTree = "<group>"; };
 		763FD6FA2449A15200F27153 /* CommitView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommitView.xib; sourceTree = "<group>"; };
 		763FD6FC2449A18200F27153 /* NibLoadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NibLoadable.swift; sourceTree = "<group>"; };
+		7647219B244D8AC4001CDF75 /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
 		76AA0244242DF51E00972966 /* NestedScrollView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NestedScrollView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		76AA0247242DF51E00972966 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		76AA0249242DF51E00972966 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -96,6 +98,7 @@
 				763FD6F624499FFC00F27153 /* HeaderView.swift */,
 				763FD6F82449A14200F27153 /* CommitView.swift */,
 				763FD6FA2449A15200F27153 /* CommitView.xib */,
+				7647219B244D8AC4001CDF75 /* WebView.swift */,
 			);
 			path = ExampleView;
 			sourceTree = "<group>";
@@ -160,7 +163,7 @@
 		76AA0277242DF98800972966 /* NestedScrollView */ = {
 			isa = PBXGroup;
 			children = (
-				763FD6EF24499D7F00F27153 /* NestedView.swift */,
+				763FD6EF24499D7F00F27153 /* EGStackView.swift */,
 			);
 			path = NestedScrollView;
 			sourceTree = "<group>";
@@ -301,9 +304,10 @@
 				76AA024C242DF51E00972966 /* ViewController.swift in Sources */,
 				763FD6FD2449A18200F27153 /* NibLoadable.swift in Sources */,
 				763FD6F724499FFC00F27153 /* HeaderView.swift in Sources */,
-				763FD6F024499D7F00F27153 /* NestedView.swift in Sources */,
+				763FD6F024499D7F00F27153 /* EGStackView.swift in Sources */,
 				76AA0248242DF51E00972966 /* AppDelegate.swift in Sources */,
 				763FD6F92449A14200F27153 /* CommitView.swift in Sources */,
+				7647219C244D8AC4001CDF75 /* WebView.swift in Sources */,
 				76AA024A242DF51E00972966 /* SceneDelegate.swift in Sources */,
 				763FD6F324499F9A00F27153 /* ExampleViewController.swift in Sources */,
 			);
@@ -481,6 +485,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4WM659594V;
 				INFOPLIST_FILE = NestedScrollView/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -499,6 +504,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4WM659594V;
 				INFOPLIST_FILE = NestedScrollView/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

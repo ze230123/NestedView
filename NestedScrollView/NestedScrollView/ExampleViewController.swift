@@ -11,12 +11,19 @@ import UIKit
 class ExampleViewController: UIViewController {
     lazy var headerView = HeaderView()
     lazy var commitView = CommitView()
-
+    lazy var webView = WebView()
     @IBOutlet weak var nestedView: NestedView!
+
+    deinit {
+        print("ExampleViewController_deinit")
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         initNavBar()
+        webView.load("https://www.jianshu.com/p/feb45e7060e1")
+        commitView.addRows(20)
+        nestedView.addArrangedSubview(webView)
         nestedView.addArrangedSubview(headerView)
         nestedView.addArrangedSubview(commitView)
     }

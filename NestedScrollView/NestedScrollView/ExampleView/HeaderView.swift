@@ -10,12 +10,14 @@ import UIKit
 
 protocol Nesteable: NSObject {
     dynamic var contentHeight: CGFloat { get set }
-    var contentHeightDidChanged: (() -> Void)? { get set }
 }
 
 class HeaderView: UIView, Nesteable {
     @objc dynamic var contentHeight: CGFloat = 0
-    var contentHeightDidChanged: (() -> Void)?
+
+    deinit {
+        print("HeaderView_deinit")
+    }
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -30,6 +32,9 @@ class HeaderView: UIView, Nesteable {
     override var intrinsicContentSize: CGSize {
         contentHeight = 300
         return CGSize(width: ScreenW, height: 300)
+    }
+
+    func setContentOffset(_ offset: CGPoint) {
     }
 }
 

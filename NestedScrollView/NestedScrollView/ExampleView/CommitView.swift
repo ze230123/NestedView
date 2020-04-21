@@ -15,13 +15,12 @@ class CommitView: UIView, NibLoadable, Nesteable {
 
     dynamic var contentHeight: CGFloat = 0 {
         didSet {
-            contentHeightDidChanged?()
         }
     }
 
-    var contentHeightDidChanged: (() -> Void)?
-
-    var contentDidChanged: ((Int) -> Void)?
+    deinit {
+        print("CommitView_deinit")
+    }
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -36,14 +35,9 @@ class CommitView: UIView, NibLoadable, Nesteable {
     }
 
     override var intrinsicContentSize: CGSize {
-        var height = CGFloat(dataSource * 44)
-
+        var height = CGFloat(dataSource * 50)
         if height == 0 {
             height = 200
-        }
-
-        if height > ScreenH {
-            height = ScreenH
         }
         return CGSize(width: ScreenW, height: height)
     }
@@ -54,13 +48,17 @@ class CommitView: UIView, NibLoadable, Nesteable {
         invalidateIntrinsicContentSize()
     }
 
+    func setContentOffset(_ offset: CGPoint) {
+        tableView.setContentOffset(offset, animated: false)
+    }
+
     var observe: NSKeyValueObservation?
 }
 
 extension CommitView {
     func prepare() {
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "CommitViewCell")
-        observe = tableView.observe(\.contentSize) { (view, _) in
+        observe = tableView.observe(\.contentSize) { [unowned self] (view, _) in
             self.contentHeight = view.contentSize.height
         }
     }
