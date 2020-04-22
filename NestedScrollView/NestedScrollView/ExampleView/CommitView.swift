@@ -35,12 +35,9 @@ class CommitView: UIView, NibLoadable, Nesteable {
         prepare()
     }
 
+    // 空白视图高度
     override var intrinsicContentSize: CGSize {
-        var height = CGFloat(dataSource * 50)
-        if height == 0 {
-            height = 200
-        }
-        return CGSize(width: ScreenW, height: height)
+        return CGSize(width: ScreenW, height: 200)
     }
 
     func addRows(_ rows: Int) {

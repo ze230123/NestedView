@@ -41,15 +41,7 @@ class WebView: UIView, Nesteable {
     }
 
     override var intrinsicContentSize: CGSize {
-        var height = contentHeight
-        if height == 0 {
-            height = 200
-        }
-
-        if height > ScreenH {
-            height = ScreenH
-        }
-        return CGSize(width: ScreenW, height: height)
+        return CGSize(width: ScreenW, height: 200)
     }
 }
 

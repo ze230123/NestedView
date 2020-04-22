@@ -18,15 +18,6 @@ protocol Nesteable: NSObject {
 /// ArrangedSubview 必须实现 intrinsicContentSize
 class EGStackView: UIScrollView {
     private lazy var contentView = UIView()
-    private lazy var stackView: UIStackView = {
-        let view = UIStackView()
-        view.backgroundColor = .cyan
-        view.axis = .vertical
-        view.alignment = .fill
-        view.distribution = .fill
-        view.spacing = 0
-        return view
-    }()
 
     private var subviewsInLayoutOrder: [UIView & Nesteable] = []
 
@@ -65,9 +56,10 @@ class EGStackView: UIScrollView {
                     subFrame.origin.y = contentOffset.y
                 }
 
-                let remainingBoundsHeight = fmax(bounds.maxY - subFrame.minY, 200)
-                let remainingContentHeight = fmax(scrollView.contentSize.height - subContentOffset.y, 200)
-                print(remainingBoundsHeight, remainingContentHeight)
+                let normalHeight = subview.intrinsicContentSize.height
+                let remainingBoundsHeight = fmax(bounds.maxY - subFrame.minY, normalHeight)
+                let remainingContentHeight = fmax(scrollView.contentSize.height - subContentOffset.y, normalHeight)
+
                 subFrame.size.height = fmin(remainingBoundsHeight, remainingContentHeight)
                 subFrame.size.width = contentView.bounds.width
 
@@ -108,7 +100,6 @@ extension EGStackView {
 
 private extension EGStackView {
     func prepare() {
-        contentView.backgroundColor = .orange
         addSubview(contentView)
     }
 }

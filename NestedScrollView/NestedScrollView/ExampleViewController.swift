@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MJRefresh
 
 class ExampleViewController: UIViewController {
     lazy var headerView = HeaderView()
@@ -31,6 +32,8 @@ class ExampleViewController: UIViewController {
         nestedView.addArrangedSubview(commitView)
 
         webView.load("https://github.com/renzifeng/ZFPlayer")
+
+        nestedView.mj_footer = MJRefreshBackNormalFooter(refreshingTarget: self, refreshingAction: #selector(loadMore))
     }
 
     func initNavBar() {
@@ -42,5 +45,21 @@ class ExampleViewController: UIViewController {
 extension ExampleViewController {
     @objc func addAction() {
         commitView.addRows(3)
+    }
+}
+
+extension ExampleViewController {
+    @objc func loadMore() {
+        print("loadMore")
+        request()
+    }
+
+    func request() {
+        DispatchQueue.global().asyncAfter(deadline: .now() + 3) {
+            DispatchQueue.main.async {
+                self.commitView.addRows(5)
+                self.nestedView.mj_footer?.endRefreshing()
+            }
+        }
     }
 }
