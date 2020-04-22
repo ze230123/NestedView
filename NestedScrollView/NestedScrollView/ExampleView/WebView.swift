@@ -11,10 +11,11 @@ import WebKit
 
 
 class WebView: UIView, Nesteable {
-    var contentHeight: CGFloat = 0 {
-        didSet {
-//            contentHeightDidChanged?()
-        }
+    var contentHeight: CGFloat = 0
+    var contentSizeDidChanged: (() -> Void)?
+
+    var scrollView: UIScrollView? {
+        return webView.scrollView
     }
 
     lazy var webView = WKWebView()
@@ -45,9 +46,9 @@ class WebView: UIView, Nesteable {
             height = 200
         }
 
-//        if height > ScreenH {
-//            height = ScreenH
-//        }
+        if height > ScreenH {
+            height = ScreenH
+        }
         return CGSize(width: ScreenW, height: height)
     }
 }
@@ -64,6 +65,7 @@ extension WebView {
 
         obser = webView.scrollView.observe(\.contentSize, changeHandler: { [unowned self] (view, _) in
             self.contentHeight = view.contentSize.height
+            self.contentSizeDidChanged?()
             self.invalidateIntrinsicContentSize()
         })
     }

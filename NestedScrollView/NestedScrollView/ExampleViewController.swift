@@ -12,7 +12,8 @@ class ExampleViewController: UIViewController {
     lazy var headerView = HeaderView()
     lazy var commitView = CommitView()
     lazy var webView = WebView()
-    @IBOutlet weak var nestedView: NestedView!
+    lazy var topView = HeaderView()
+    @IBOutlet weak var nestedView: EGStackView!
 
     deinit {
         print("ExampleViewController_deinit")
@@ -21,11 +22,15 @@ class ExampleViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         initNavBar()
-        webView.load("https://www.jianshu.com/p/feb45e7060e1")
-        commitView.addRows(20)
+
+        commitView.addRows(100)
+
+        nestedView.addArrangedSubview(topView)
         nestedView.addArrangedSubview(webView)
         nestedView.addArrangedSubview(headerView)
         nestedView.addArrangedSubview(commitView)
+
+        webView.load("https://github.com/renzifeng/ZFPlayer")
     }
 
     func initNavBar() {

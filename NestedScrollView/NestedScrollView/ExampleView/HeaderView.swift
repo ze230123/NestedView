@@ -8,12 +8,13 @@
 
 import UIKit
 
-protocol Nesteable: NSObject {
-    dynamic var contentHeight: CGFloat { get set }
-}
 
-class HeaderView: UIView, Nesteable {
-    @objc dynamic var contentHeight: CGFloat = 0
+class HeaderView: UIView, NibLoadable, Nesteable {
+    var contentSizeDidChanged: (() -> Void)?
+
+    var scrollView: UIScrollView?
+
+    private var contentHeight: CGFloat = 300
 
     deinit {
         print("HeaderView_deinit")
@@ -21,17 +22,18 @@ class HeaderView: UIView, Nesteable {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
+        initViewFromNib()
         prepare()
     }
 
     required init?(coder: NSCoder) {
         super.init(coder: coder)
+        initViewFromNib()
         prepare()
     }
 
     override var intrinsicContentSize: CGSize {
-        contentHeight = 300
-        return CGSize(width: ScreenW, height: 300)
+        return CGSize(width: ScreenW, height: contentHeight)
     }
 
     func setContentOffset(_ offset: CGPoint) {
@@ -40,6 +42,15 @@ class HeaderView: UIView, Nesteable {
 
 extension HeaderView {
     func prepare() {
-        backgroundColor = .red
+    }
+
+    @IBAction func tapAction() {
+        if contentHeight >= 500 {
+            contentHeight = 300
+        } else {
+            contentHeight += 200
+        }
+        invalidateIntrinsicContentSize()
+        contentSizeDidChanged?()
     }
 }

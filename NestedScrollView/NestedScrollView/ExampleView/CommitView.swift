@@ -13,9 +13,10 @@ class CommitView: UIView, NibLoadable, Nesteable {
 
     var dataSource: Int = 0
 
-    dynamic var contentHeight: CGFloat = 0 {
-        didSet {
-        }
+    var contentSizeDidChanged: (() -> Void)?
+
+    var scrollView: UIScrollView? {
+        return tableView
     }
 
     deinit {
@@ -59,7 +60,7 @@ extension CommitView {
     func prepare() {
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "CommitViewCell")
         observe = tableView.observe(\.contentSize) { [unowned self] (view, _) in
-            self.contentHeight = view.contentSize.height
+            self.contentSizeDidChanged?()
         }
     }
 }
@@ -72,6 +73,7 @@ extension CommitView: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CommitViewCell", for: indexPath)
         cell.textLabel?.text = "这是评论 -----> \(indexPath.row)"
+        print("cellForRowAt -> \(indexPath.row)")
         return cell
     }
 }

@@ -15,6 +15,7 @@
 		763FD6FB2449A15200F27153 /* CommitView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 763FD6FA2449A15200F27153 /* CommitView.xib */; };
 		763FD6FD2449A18200F27153 /* NibLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 763FD6FC2449A18200F27153 /* NibLoadable.swift */; };
 		7647219C244D8AC4001CDF75 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7647219B244D8AC4001CDF75 /* WebView.swift */; };
+		7679FD28244EF9AE007CA928 /* HeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7679FD27244EF9AE007CA928 /* HeaderView.xib */; };
 		76AA0248242DF51E00972966 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76AA0247242DF51E00972966 /* AppDelegate.swift */; };
 		76AA024A242DF51E00972966 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76AA0249242DF51E00972966 /* SceneDelegate.swift */; };
 		76AA024C242DF51E00972966 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76AA024B242DF51E00972966 /* ViewController.swift */; };
@@ -51,6 +52,7 @@
 		763FD6FA2449A15200F27153 /* CommitView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommitView.xib; sourceTree = "<group>"; };
 		763FD6FC2449A18200F27153 /* NibLoadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NibLoadable.swift; sourceTree = "<group>"; };
 		7647219B244D8AC4001CDF75 /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
+		7679FD27244EF9AE007CA928 /* HeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderView.xib; sourceTree = "<group>"; };
 		76AA0244242DF51E00972966 /* NestedScrollView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NestedScrollView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		76AA0247242DF51E00972966 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		76AA0249242DF51E00972966 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -96,6 +98,7 @@
 			isa = PBXGroup;
 			children = (
 				763FD6F624499FFC00F27153 /* HeaderView.swift */,
+				7679FD27244EF9AE007CA928 /* HeaderView.xib */,
 				763FD6F82449A14200F27153 /* CommitView.swift */,
 				763FD6FA2449A15200F27153 /* CommitView.xib */,
 				7647219B244D8AC4001CDF75 /* WebView.swift */,
@@ -275,6 +278,7 @@
 				76AA0254242DF51F00972966 /* LaunchScreen.storyboard in Resources */,
 				763FD6FB2449A15200F27153 /* CommitView.xib in Resources */,
 				763FD6F424499F9A00F27153 /* ExampleViewController.xib in Resources */,
+				7679FD28244EF9AE007CA928 /* HeaderView.xib in Resources */,
 				76AA0251242DF51F00972966 /* Assets.xcassets in Resources */,
 				76AA024F242DF51E00972966 /* Main.storyboard in Resources */,
 			);
